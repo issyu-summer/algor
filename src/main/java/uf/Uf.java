@@ -1,7 +1,8 @@
 package uf;
 
 /**
- * 动态连通性问题
+ * 动态连通性问题<br/>
+ * quick-find<br/>
  * @author summer
  * @see <a href=""></a><br/>
  */
@@ -28,6 +29,9 @@ public class Uf {
         if(!connected(p,q)){
             int pT=find(p);
             int qT=find(q);
+            if(pT==qT){
+                return;
+            }
             for (int i = 0; i < count; i++) {
                 if(find(i)==pT){
                     id[i]=qT;

@@ -1,6 +1,10 @@
 package uf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
+ * quick-union
  * @author summer
  * @see <a href=""></a><br/>
  */
@@ -21,9 +25,14 @@ public class Uf1 {
      * 找到连通分量的根节点
      */
     public int find(int p){
+//        List<Integer> nodes=new ArrayList<>();
         while (p!=id[p]){
+//            nodes.add(p);
             p=id[p];
         }
+//        for (Integer node:nodes) {
+//            id[node]=p;
+//        }
         return p;
     }
 
