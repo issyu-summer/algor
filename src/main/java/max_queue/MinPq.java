@@ -7,6 +7,6 @@ package max_queue;
 public class MinPq<T extends Comparable<T>> {
 
     public T delMin() {
-
+        return null;
     }
 }
