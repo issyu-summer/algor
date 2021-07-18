@@ -2,20 +2,22 @@
 - 12:矩阵中的路径
 - 13:机器人的运动范围
 - 17:打印从1到n的最大n位
-- 34:二叉树中和为某一值的路径
+- 34:二叉树中和为某个值的路径
 - 38:全排列
 
 动态规划:
-- 10:斐波那契数列
-- 10.2:青蛙跳台阶
-- 14.1:剪绳子
-- 14.2:剪绳子
+- 10:[🔗](src/main/java/sword/Main10sb1.java)斐波那契数列 ==> `dp[i]=dp[i-1]+dp[i-2]`
+- 10.2:[🔗](src/main/java/sword/Main10sb2.java)青蛙跳台阶 ==> `dp[i]=dp[i-1]+dp[i-2]`
+- 14.1:[🔗](src/main/java/sword/Main14sb1.java)剪绳子 ==>`dp[i]=max(dp[i-j]*j,dp[i-1])`
+- 14.2:剪绳子 ==> `dp[i]=max(dp[i-j]*j,dp[i-1])%1e8+7`
 - 19:正则表达式的匹配
-- 42:连续子数组的最大和
-- 46:把数字翻译成字符串
-- 47:最大礼物价值
-- 48:最长不含重复字符的子字符串
-- 49:丑数
+- 42:[🔗](src/main/java/sword/Main42.java)连续子数组的最大和 ==> `if(dp[i-1]<0) dp[i]=nums[i]; else dp[i]=dp[i]+nums[i]`
+- 46:[🔗](src/main/java/sword/Main46.java)把数字翻译成字符串 ==> `if(两位能表示一个字母) dp[i]=dp[i-1]*1+dp[i-2]*1 else dp[i]=dp[i-1]`
+- 47:[🔗](src/main/java/sword/Main47.java)最大礼物价值 ==> `dp[i][j]=max(dp[i-1][j],dp[i][j-1])+grid[i][j]`
+- 48:[🔗](src/main/java/sword/Main48.java)最长不含重复字符的子字符串  ==> `if(遇到了重复字符){  if(在当前序列范围内)  dp[i]=i-j else dp[i]=dp[i-1]+1}  else dp[i]=dp[i-1]+1`
+- 49:[🔗](src/main/java/sword/Main49.java)丑数 ==> `n2=dp[a]*2;  n3=dp[b]*3;  n5=dp[c]*5;  dp[i]=min(n2,n3,n5)  if(dp[i]==n2)  a++  if(dp[i]==n3)  b++  if(dp[i]==n5)  c++`
+- 60:[🔗](src/main/java/sword/Main60.java)n个骰子🎲的点数  ==> `tmp[j+k]+=dp[j]/6.0`
+- 62:圆圈中最后剩下的数字(约瑟夫环) ==> `dp[i]=(dp[i]+m)%i`
 
 数组:
 - 3:数组中的重复数字
@@ -42,6 +44,7 @@
 - 58.1:反转单词顺序
 - 58.2:左旋字符串
 - 59.2:队列的最大值
+- 61:扑克牌中的顺子
 
 链表:
 - 6:从尾到头打印链表

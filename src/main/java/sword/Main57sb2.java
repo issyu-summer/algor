@@ -1,6 +1,7 @@
 package sword;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,14 +20,19 @@ public class Main57sb2 {
                 }
                 res.add(ans);
             }
-            if(s<target){
+            if(s<target) {
                 j++;
-                s+=j;
-            }else {
+                s += j;
+            }
+            if(s>=target){
                 s-=i;
                 i++;
             }
         }
         return res.toArray(new int[0][]);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.deepToString(new Main57sb2().findContinuousSequence(9)));
     }
 }
