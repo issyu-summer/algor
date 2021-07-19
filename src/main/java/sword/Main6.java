@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 /**
  * @author summer
@@ -20,10 +21,7 @@ public class Main6 {
             head = head.next;
         }
         int size = stack.size();
-        int[] ret = new int[size];
-        for (int i = 0; i < size; i++) {
-            ret[i] = stack.pop();
-        }
+        int[] ret = IntStream.range(0, size).map(i -> stack.pop()).toArray();
         return ret;
     }
 

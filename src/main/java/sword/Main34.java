@@ -27,22 +27,21 @@ public class Main34 {
     public List<List<Integer>> pathSum(TreeNode root, int target) {
         res=new ArrayList<>();
         tmp=new ArrayList<>();
-        backTrace(root,target);
+        dfs(root,target);
         return res;
     }
 
-    private void backTrace(TreeNode root,int target){
+    private void dfs(TreeNode root, int target){
         if(root==null){
             return;
         }
         if(target==0&&root.left==null&&root.right==null){
-            res.add(tmp);
-
+            res.add(new ArrayList<>(tmp));
         }
         tmp.add(root.val);
         target-=root.val;
-        backTrace(root.left,target);
-        backTrace(root.right,target);
-        tmp.remove(root.val);
+        dfs(root.left,target);
+        dfs(root.right,target);
+        tmp.remove(tmp.size()-1);
     }
 }
