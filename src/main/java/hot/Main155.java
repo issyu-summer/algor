@@ -1,28 +1,29 @@
-package sword;
+package hot;
 
+import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Stack;
 
 /**
  * @author summer
  * @see <a href=""></a><br/>
  */
-public class Main30 {
-
+public class Main155 {
     class MinStack{
-        private Stack<Integer> stack;
-        private Stack<Integer> minStack;
+        Stack<Integer> stack;
+        Stack<Integer> minStack;
         public MinStack() {
             stack=new Stack<>();
             minStack=new Stack<>();
         }
 
-        public void push(int x) {
-            stack.push(x);
+        public void push(int val) {
+            stack.push(val);
             if(minStack.isEmpty()){
-                minStack.push(x);
+                minStack.push(val);
             }else {
-                if(x<=minStack.peek()){
-                    minStack.push(x);
+                if(val<=minStack.peek()){
+                    minStack.push(val);
                 }
             }
         }
@@ -37,7 +38,7 @@ public class Main30 {
             return stack.peek();
         }
 
-        public int min() {
+        public int getMin() {
             return minStack.peek();
         }
     }

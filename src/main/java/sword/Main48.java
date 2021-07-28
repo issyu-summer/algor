@@ -40,7 +40,7 @@ public class Main48 {
         if(s.equals("")){
             return 0;
         }
-        Map<Character,Integer> dict=new HashMap<Character,Integer>();
+        Map<Character,Integer> dict= new HashMap<>();
         int j=-1,res=0;
         for (int i = 0; i < s.length(); i++) {
             if(dict.containsKey(s.charAt(i))){

@@ -1,6 +1,9 @@
+package hot;
+
 /**
  * @author summer
  * @see <a href=""></a><br/>
  */
-public class hot {
+public class Main10 {
+
 }
