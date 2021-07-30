@@ -21,11 +21,13 @@ public class Main32sb2 {
           if(root==null){
               return new ArrayList<>();
           }
-        Queue<TreeNode> queue=new LinkedList<TreeNode>(){{add(root);}};
+        Queue<TreeNode> queue= new LinkedList<>() {{
+            add(root);
+        }};
         List<List<Integer>> list=new ArrayList<>();
         while (!queue.isEmpty()){
             List<Integer> tmp=new ArrayList<>();
-            for (int i = queue.size(); i >0 ; i--) {
+            for (int i = queue.size(); i >0; i--) {
                 TreeNode node = queue.poll();
                 tmp.add(node.val);
                 //当执行完size次以下语句,新的size将被确定。保证每次的数量

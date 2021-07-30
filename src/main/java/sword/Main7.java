@@ -1,7 +1,9 @@
 package sword;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author summer
@@ -15,6 +17,7 @@ public class Main7 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         this.dict = new HashMap<>();
         this.preorder = preorder;
+        //缓存中序遍历：左根右
         for (int i = 0; i < inorder.length; i++) {
             dict.put(inorder[i], i);
         }
@@ -26,12 +29,14 @@ public class Main7 {
         if (left > right) {
             return null;
         }
-        //根
+        //前序遍历：根左右->首元素为根
         TreeNode node = new TreeNode(preorder[root]);
-        //根的位置
+        //i:根在中序遍历中的位置
         int i = dict.get(preorder[root]);
-        //left和right限制了左右子树的长度和相应元素的位置
+        //root用在前序遍历==i,left和right用在中序遍历
+        //root+1->左根的位置
         node.left = recur(root + 1, left, i - 1);
+        //前序遍历根左右->左子树长度+root的位置+1->右根的位置
         node.right = recur(i - left + root + 1, i + 1, right);
         return node;
     }

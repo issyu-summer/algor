@@ -20,7 +20,9 @@ public class Main32sb3 {
         if(root==null){
             return new ArrayList<>();
         }
-        LinkedList<TreeNode> queue=new LinkedList<TreeNode>(){{add(root);}};
+        LinkedList<TreeNode> queue= new LinkedList<>() {{
+            add(root);
+        }};
         List<List<Integer>> list=new LinkedList<>();
         while (!queue.isEmpty()){
             LinkedList<Integer> tmp=new LinkedList<>();

@@ -139,7 +139,7 @@
 - 50:🔗[字符串中第一个出现1次的数字](src/main/java/sword/Main50.java)
 - 58.1:🔗[反转单词顺序](src/main/java/sword/Main58sb1.java)
 - 58.2:🔗[左旋字符串](src/main/java/sword/Main58sb2.java)
-- 67:🔗[字符串转数字](src/main/java/sword/Main6ytop7.java)
+- 67:🔗[字符串转数字](src/main/java/sword/Main67.java)
 
 ### 链表 *7
 - 6:🔗[从尾到头打印链表](src/main/java/sword/Main6.java)  
@@ -190,7 +190,12 @@
   `return tmpA`
 
 ### 二叉树 *9
-- 7:重建二叉树
+- 7:🔗[重建二叉树](src/main/java/sword/Main7.java)  
+  `前序+中序或者后序+中序`  
+  `缓存中序遍历dict`  
+  `递归构建树`  
+  `--> 左树=左根`  
+  `--> 右树=右根`
 - 26:树的子结构
 - 27:🔗[二叉树的镜像](src/main/java/sword/Main27.java)  
   `recur(root)`  
@@ -200,7 +205,7 @@
   `--> root.right=recur(tmp)`  
   `--> return root`
 - 28:对称的二叉树
-- 32.1.2.3:从上到下打印二叉树
+- 32.1.2.3:🔗[从上到下打印二叉树](src/main/java/sword/Main32sb1.java)
 - 37:二叉树的序列化与反序列化
 - 38:二叉搜索树中的第K大节点
 - 55.1:二叉树的深度

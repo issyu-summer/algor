@@ -1,6 +1,5 @@
 package sword;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -20,7 +19,9 @@ public class Main32sb1 {
 
     //想出队先暂存
     public int[] levelOrder(TreeNode root) {
-       Queue<TreeNode> queue=new LinkedList<TreeNode>(){{add(root);}};
+       Queue<TreeNode> queue= new LinkedList<>() {{
+           add(root);
+       }};
        List<Integer> list=new LinkedList<>();
         while (!queue.isEmpty()){
             TreeNode node=queue.poll();
