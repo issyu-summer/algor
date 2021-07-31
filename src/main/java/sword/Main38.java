@@ -67,6 +67,6 @@ public class Main38 {
         ar[j]=tmp;
     }
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Main38().permutation("abc")));
+        System.out.println(Arrays.toString(new Main38().permutation("rabbbit")));
     }
 }
