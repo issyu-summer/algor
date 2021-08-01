@@ -1,6 +1,7 @@
 package shopee;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author summer
@@ -8,6 +9,7 @@ import java.util.Arrays;
  */
 public class Main912 {
 
+    private Random random=new Random();
     public int[] sortArray(int[] nums) {
         quickSort(nums,0,nums.length-1);
         return nums;
@@ -17,6 +19,8 @@ public class Main912 {
         if(l>=r){
             return;
         }
+        int t=random.nextInt(r-l+1)+l;
+        swap(ar,t,l);
         int i=l,j=r;
         while (i<j){
             while (i<j&&ar[j]>=ar[l]){

@@ -44,4 +44,19 @@ public class Main34 {
         dfs(root.right,target);
         tmp.remove(tmp.size()-1);
     }
+
+    private void dfs1(TreeNode root, int target){
+        if(root==null){
+            return;
+        }
+        List<Integer> saved=new ArrayList<>(tmp);
+        tmp.add(root.val);
+        target-=root.val;
+        if(target==0&&root.left==null&&root.right==null){
+            res.add(new ArrayList<>(tmp));
+        }
+        dfs1(root.left,target);
+        dfs1(root.right,target);
+        tmp=saved;
+    }
 }
