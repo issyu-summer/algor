@@ -35,11 +35,11 @@ public class Main34 {
         if(root==null){
             return;
         }
+        tmp.add(root.val);
+        target-=root.val;
         if(target==0&&root.left==null&&root.right==null){
             res.add(new ArrayList<>(tmp));
         }
-        tmp.add(root.val);
-        target-=root.val;
         dfs(root.left,target);
         dfs(root.right,target);
         tmp.remove(tmp.size()-1);

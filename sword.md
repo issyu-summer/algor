@@ -73,7 +73,7 @@
   `dp[i]=(dp[i]+m)%i`
 - 63:🔗[股票的最大利润](src/main/java/sword/Main63.java)   
   `dp[i]=max(dp[i-1],ar[i]-min(ar[0:i]))`
-- 67:🔗[构建乘积数组](src/main/java/sword/Main67.java)
+- 66:🔗[构建乘积数组](src/main/java/sword/Main66.java)
 
 ### 数组 *6
 - 3:🔗[数组中的重复数字](src/main/java/sword/Main3.java)  
