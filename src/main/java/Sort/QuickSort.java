@@ -25,7 +25,7 @@ public class QuickSort extends Sort{
             exchange(a,i,j);
         }
         exchange(a,i,l);
-        quickSort(a,1,i-1);
+        quickSort(a,l,i-1);
         quickSort(a,i+1,r);
     }
 }
