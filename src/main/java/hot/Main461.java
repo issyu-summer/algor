@@ -4,7 +4,7 @@ package hot;
  * @author summer
  * @see <a href=""></a><br/>
  */
-public class Main26 {
+public class Main461 {
 
     public int hammingDistance(int x, int y) {
         int s=x^y;

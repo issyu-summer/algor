@@ -14,6 +14,7 @@ public class Main63 {
         int cost=prices[0];
         dp[0]=0;
         for (int i = 1; i < prices.length; i++) {
+            //维护最小的花费
             cost=Math.min(cost,prices[i]);
             dp[i]= Math.max(dp[i-1],prices[i]-cost);
         }

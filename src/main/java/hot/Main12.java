@@ -1,6 +1,7 @@
 package hot;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -12,7 +13,7 @@ public class Main12 {
 
     public String intToRoman(int num) {
         //TreeMap默认 升序,LinkedHashMap按照给的顺序
-        Map<Integer,String> map=new TreeMap<Integer,String>(Comparator.reverseOrder()){{
+        Map<Integer,String> map=new LinkedHashMap<>(){{
             put(1000,"M");
             put(900,"CM");
             put(500,"D");

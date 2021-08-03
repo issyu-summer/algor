@@ -10,8 +10,8 @@ public class Main14 {
             return "";
         }
         int len=strs[0].length();
-        char comp=strs[0].charAt(0);
         for (int i=0;i<len;i++){
+            char comp=strs[0].charAt(i);
             for (int j = 1; j < strs.length; j++) {
                 if(i>=strs[j].length()||comp!=strs[j].charAt(i)){
                     return strs[0].substring(0,i);
