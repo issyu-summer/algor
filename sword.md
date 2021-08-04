@@ -286,7 +286,7 @@
 
 ### topK *1
 - 40:🔗[最小的K个数(topK问题)](src/main/java/sword/Main40.java)  
-  `1.优先队列（堆）`  
+  `1.优先队列（堆）默认是小根堆`  
   `queue=new PriorityQueue<>((v1,v2)->v2-v1) --> 大根堆,每次需要poll比较大的`  
   `foreach --> if(queue.size()<k) --> queue.add(n)`  
   `--> else if(queue.peek()>n) --> queue.poll() and queue.add(n)`  

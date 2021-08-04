@@ -36,8 +36,14 @@ public class Main40 {
         return quickSort(arr,0,arr.length-1);
 
     }
+    Random random=new Random();
     //快速排序必须先移动右指针！！！
     private int[] quickSort(int []ar,int l,int r){
+        if(l>r){
+            return Arrays.copyOf(ar, k);
+        }
+        int index=random.nextInt(r-l+1)+l;
+        swap(ar,l,index);
         int i = l, j = r;
         while (i < j) {
             while (i < j && ar[j] >= ar[l]) {
@@ -61,6 +67,6 @@ public class Main40 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Main40().getLeastNumbers1(new int[]{0, 1,2, 1}, 1)));
+        System.out.println(Arrays.toString(new Main40().getLeastNumbers1(new int[]{0, 1}, 2)));
     }
 }

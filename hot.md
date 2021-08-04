@@ -1,3 +1,6 @@
+### git
+git config --global --unset http.proxy
+git config --global http.sslVerify "false"
 ### 数组
 - 1、两数之和`排序+双指针->找到两个数`/`哈希表先判断后放,找到两个索引`
 ### 链表
