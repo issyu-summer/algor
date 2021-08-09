@@ -15,9 +15,9 @@ public class Main33 {
             return true;
         }
         int p=i;
-
         //经过此循环,i~m-1一定比j小,即满足左子树比根小
         while (less(postorder,p,j)){
+            //从前边找大的
             p++;
         }
         int m=p;

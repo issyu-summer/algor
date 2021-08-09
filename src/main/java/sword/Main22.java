@@ -13,12 +13,14 @@ public class Main22 {
      }
 
     public ListNode getKthFromEnd(ListNode head, int k) {
-        ListNode node=head;
-        for(ListNode tmp=head;tmp!=null;tmp=tmp.next){
-            if(k--<=0){
-                node=node.next;
-            }
+        ListNode fast=head,slow=head;
+        for(int i=0;i<k;i++){
+            fast=fast.next;
         }
-        return node;
+        while (fast!=null){
+            fast=fast.next;
+            slow=slow.next;
+        }
+        return slow;
     }
 }

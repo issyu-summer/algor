@@ -19,7 +19,7 @@ public class Main11 {
 
     public int minArray1(int[] numbers) {
         int l = 0, r = numbers.length - 1;
-        while (l != r) {
+        while (l < r) {
             int m = l + (r - l) / 2;
             if (numbers[m] > numbers[r]) {
                 l = m + 1;

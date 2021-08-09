@@ -13,7 +13,7 @@ public class Main31 {
         int a=0;
         for (int j : pushed) {
             stack.push(j);
-            while (stack.peek() == popped[a]) {
+            while (!stack.isEmpty()&&stack.peek() == popped[a]) {
                 stack.pop();
                 a++;
             }

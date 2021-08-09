@@ -20,7 +20,7 @@ public class Main14sb1 {
         dp[3] = 3;
         for (int i = 4; i < n + 2; i++) {
             for (int j = 2; j < i - 1; j++) {
-                dp[i] = Math.max(j * dp[i - j], dp[i]);
+                dp[i] = Math.max(j * dp[i - j],dp[i]);
             }
         }
         return dp[n];

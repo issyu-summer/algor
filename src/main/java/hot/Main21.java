@@ -18,7 +18,7 @@ public class Main21 {
             }
             tmp=tmp.next;
         }
-        tmp.next=l1==null?l1:l2;
-        return vHead;
+        tmp.next=l1!=null?l1:l2;
+        return vHead.next;
     }
 }

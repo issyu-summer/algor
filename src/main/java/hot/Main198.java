@@ -12,7 +12,7 @@ public class Main198 {
         dp[0]=nums[0];
         dp[1]=Math.max(nums[0],nums[1]);
         for (int i = 2; i < len; i++) {
-            //偷第K家则不能偷第k-1家,不偷第K家则可以偷第K-1家
+            //偷第K家则不能偷第k-1家(只能偷到i-2),不偷第K家则可以偷第K-1家
             dp[i]=Math.max(dp[i-2]+nums[i],dp[i-1]);
         }
         return dp[len-1];

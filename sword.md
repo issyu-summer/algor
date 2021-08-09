@@ -32,14 +32,14 @@
   `if(2||3||4)  ret 0`  
   `visited[i][j]=true`  
   `ret 1+dfs(i+1,j)+dfs(i,j+1)`
-- 17:打印从1到n的最大n位
+- 17:🔗[打印从1到n的最大n位](src/main/java/sword/Main17.java)
 - 38:🔗[全排列](src/main/java/sword/Main38.java)  
   `1.控制重复`  
   `-->1.1.swap + HashSet`  
   `-->1.2.sort + i>0&&!visited[i-1]&&chars[i]==chars[i-1]`  
   `2.dfs`  
   `-->2.1.`  
-  `if(depth==len-1) --> add(sbuilder.toString())  and return`  
+  `if(depth==len-1) --> add(sbuilder.toString())  and ret`  
   `set=new HashSet<>() --> fori deep~len`  
   `if(set.contains()) --> continue`  
   `set.add()`  
@@ -52,8 +52,8 @@
 - 10.2:🔗[青蛙跳台阶](src/main/java/sword/Main10sb2.java)  
   `dp[i]=dp[i-1]+dp[i-2]`
 - 14.1:🔗[剪绳子](src/main/java/sword/Main14sb1.java)  
-  `dp[i]=max(dp[i-j]*j,dp[i-1])`
-- 14.2:剪绳子  
+  `dp[i]=max(dp[i-j]*j,dp[i])  j=2~i-1` 
+- 14.2:🔗[剪绳子2](src/main/java/sword/Main14sb2.java)    
   `dp[i]=max(dp[i-j]*j,dp[i-1])%1e8+7`
 - 19:正则表达式的匹配
 - 42:🔗[连续子数组的最大和](src/main/java/sword/Main42.java)  
@@ -70,7 +70,7 @@
 - 60:🔗[n个骰子🎲的点数](src/main/java/sword/Main60.java)    
   `tmp[j+k]+=dp[j]/6.0`
 - 62:🔗[圆圈中最后剩下的数字(约瑟夫环)](src/main/java/sword/Main62.java)   
-  `dp[i]=(dp[i]+m)%i`
+  `dp[i]=(dp[i-1]+m)%i`
 - 63:🔗[股票的最大利润](src/main/java/sword/Main63.java)   
   `dp[i]=max(dp[i-1],ar[i]-min(ar[0:i]))`
 - 66:🔗[构建乘积数组](src/main/java/sword/Main66.java)
@@ -83,7 +83,11 @@
   `--> if(!set.add(n))  return n;`  
   `3.hashMap统计`
 - 4:🔗[二维数组中的查找](src/main/java/sword/Main4.java) ==> 左到右递增,上到下递增
-- 11:🔗[旋转数组的最小数字](src/main/java/sword/Main11.java) ==> 二分
+- 11:🔗[旋转数组的最小数字](src/main/java/sword/Main11.java) ==> 二分  
+  `l=0,r=len-1,mid=l+(r-l)>>1`  
+  `mid大则l=mid+1`  
+  `mid小则r=mid`  
+  `相等则r--`
 - 56.1:🔗[数组中数字出现的次数](src/main/java/sword/Main56sb1.java) ==> 位运算
 - 56.2:🔗[数组中数字出现的次数2](src/main/java/sword/Main56sb2.java) ==> 未学习
 - 57.1:🔗[和为s的两个数](src/main/java/sword/Main57sb1.java) ==> 双指针
@@ -101,11 +105,12 @@
 - 53.2:🔗[0～n-1中缺失的数字](src/main/java/sword/Main53sb2.java) ==>`fori if(i!=ar[i]){ return i; }`
 
 ### 其他:
-- 16:数值的整数次方
-- 29:顺时针打印矩阵
-- 41:数据流中的中位数
+- 16:🔗[数值的整数次方](src/main/java/sword/Main16.java)  
+  `n==0 ret1  n<0  n=-n ret 1.0/pow(x,n) else ret pow(x,n)`
+- 29:🔗[顺时针打印矩阵](src/main/java/sword/Main29.java)
+- 41:🔗[数据流中的中位数](src/main/java/sword/Main41.java)
 - 57.2:和为s的连续正整数序列
-- 59.2:队列的最大值
+- 59.2:🔗[队列的最大值](src/main/java/sword/Main59sb2.java)
 
 ### 数学问题 *2
 - 64:🔗[计算1+2+...+n(不使用运算符)](src/main/java/sword/Main64.java)  
@@ -193,23 +198,28 @@
 - 7:🔗[重建二叉树](src/main/java/sword/Main7.java)  
   `前序+中序或者后序+中序`  
   `缓存中序遍历dict`  
-  `递归构建树`  
-  `--> 左树=左根`  
-  `--> 右树=右根`
-- 26:树的子结构
-- 27:🔗[二叉树的镜像](src/main/java/sword/Main27.java)  
+  `递归构建树` 
+  `node = new TreeNode(preorder[root])`  
+  `--> i=dict.get(preorder[root])`
+  `--> node.left=（root+1,left,i-1）`  
+  `--> node.right=(i-left+root+1,i+1,right)`
+- 26:🔗[树的子结构](src/main/java/sword/Main26.java)  
+  `recur(s,sb)||isSubStruce(s.left,sb)||isSubStrurctue(s.right,sb)`
+  `recur(s,sb)  如果sb为空，则全部找到返回true，如果s为空或者s.val!=sb.val 则返回false ret recur(s.left,sb.left)&&recur(s.right,sb.right)`
+- 27:🔗[二叉树的镜像](src/main/java/sword/Main27.java)  `暂存交换，把根返回`  
   `recur(root)`  
   `--> if(root==null) return null`  
   `--> tmp=root.left`  
   `--> root.left=recur(root.right)`  
   `--> root.right=recur(tmp)`  
   `--> return root`
-- 28:对称的二叉树
+- 28::🔗[对称的二叉树](src/main/java/sword/Main28.java)  
+  `最左边与最右边比较，中间和中间比较recur(l.left,r.right)&&recur(l.right,r.left)`
 - 32.1.2.3:🔗[从上到下打印二叉树](src/main/java/sword/Main32sb1.java)
-- 37:二叉树的序列化与反序列化
+- 37:🔗[二叉树的序列化与反序列化](src/main/java/sword/Main37.java)
 - 38:二叉搜索树中的第K大节点
-- 55.1:二叉树的深度
-- 55.2:平衡二叉树
+- 55.1:🔗[二叉树的深度](src/main/java/sword/Main55sb1.java)
+- 55.2:🔗[平衡二叉树](src/main/java/sword/Main55sb2.java)
 #### 遍历
 - 34:🔗[二叉树中和为某个值的路径](src/main/java/sword/Main34.java)  
   `前序遍历:根左右`  
@@ -226,13 +236,16 @@
 ### 二叉搜索树 *4
 - 33:🔗[二叉搜索树的后续遍历](src/main/java/sword/Main33.java)
 - 36:🔗[二叉搜索树与排序循环双向链表](src/main/java/sword/Main36.java)
-- 68.1:🔗[二叉搜索树的最近公共祖先](src/main/java/sword/Main68sb1.java)
+- 68.1:🔗[二叉搜索树的最近公共祖先](src/main/java/sword/Main68sb1.java)  
+  `递归，同时比根大，在根左，同时比根小，在根右`
 - 68.2:🔗[二叉树的最近公共祖先](src/main/java/sword/Main68sb2.java)
 
 ### 队列、栈 *4
-- 9:使用两个栈实现队列
+- 9:🔗[使用两个栈实现队列](src/main/java/sword/Main9.java)
+  `顺序栈（入）+逆序栈（将顺序栈元素放入逆序栈、出）`  
 - 30:🔗[包含min方法的栈](src/main/java/sword/Main30.java)
-- 31:栈的压入、弹出序列
+  `栈、降序栈（入：栈入，如果降序栈为空，降序栈入，否则如果元素比降序栈顶部元素小，则入；出：如果栈出等于降序栈顶部，降序栈出）`
+- 31:🔗[栈的压入、弹出序列](src/main/java/sword/Main31.java)
 
 ### 有限状态自动机
 - 20:表示数值的字符串
@@ -257,8 +270,8 @@
 
 
 ### 滑动窗口: *2
-- 57.2:和为s的连续正整数序列
-- 59.1:滑动窗口中的最大值
+- 57.2:🔗[和为s的连续正整数序列](src/main/java/sword/Main57sb2.java)
+- 59.1:🔗[滑动窗口中的最大值](src/main/java/sword/Main59sb1.java)
 
 ### 二分:
 - 0.1:📕 log(n)
@@ -280,7 +293,8 @@
 
 
 ### 未学习
-- 45:🔗[把数组排成最小的数](src/main/java/sword/Main45.java) 
+- 45:🔗[把数组排成最小的数](src/main/java/sword/Main45.java)  
+  `根据规则来排序 Arrays.sort(ar,(x,y)->(x+y).compareTo(y+x));`
 - 53.1:🔗[排序数组中查找数字](src/main/java/sword/Main53sb1.java) 
 - 56.2:🔗[数组中数字出现的次数2](src/main/java/sword/Main56sb2.java)
 
@@ -290,7 +304,7 @@
   `queue=new PriorityQueue<>((v1,v2)->v2-v1) --> 大根堆,每次需要poll比较大的`  
   `foreach --> if(queue.size()<k) --> queue.add(n)`  
   `--> else if(queue.peek()>n) --> queue.poll() and queue.add(n)`  
-  `2.快排思想`   
+  `2.快排思想  越界直接return即可 注意比较大小有等号！`   
   `ret:int [] --> quickSort(int []ar,int l,int r)`   
   `int i=l,j=r`  
   `while(i<j)`  

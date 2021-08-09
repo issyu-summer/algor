@@ -12,7 +12,7 @@ public class Main26 {
          TreeNode(int x) { val = x; }
      }
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        return (A != null && B != null)&&(recur(A,B)||recur(A.left,B)||recur(A.right,B));
+        return (A != null && B != null)&&(recur(A,B)||isSubStructure(A.left,B)||isSubStructure(A.right,B));
     }
 
     private boolean recur(TreeNode t,TreeNode st){
@@ -22,7 +22,6 @@ public class Main26 {
         if(t==null||t.val!=st.val){
             return false;
         }
-        //不相等的话递归t的子树与st,相等的话的递归t的子树与st的子树
         return recur(t.left,st.left)&&recur(t.right,st.right);
     }
 }

@@ -33,12 +33,15 @@ public class Main40 {
             return arr;
         }
         this.k=k;
-        return quickSort(arr,0,arr.length-1);
+        //第k小
+//        return quickSort(arr,k,0,arr.length-1);
+        //第k大
+        return quickSort(arr,arr.length-k,0,arr.length-1);
 
     }
     Random random=new Random();
     //快速排序必须先移动右指针！！！
-    private int[] quickSort(int []ar,int l,int r){
+    private int[] quickSort(int []ar,int k ,int l,int r){
         if(l>r){
             return Arrays.copyOf(ar, k);
         }
@@ -55,8 +58,8 @@ public class Main40 {
             swap(ar, i, j);
         }
         swap(ar, i, l);
-        if (i > k) return quickSort(ar, l, i - 1);
-        if (i < k) return quickSort(ar, i + 1, r);
+        if (i > k) return quickSort(ar,k, l, i - 1);
+        if (i < k) return quickSort(ar,k, i + 1, r);
         return Arrays.copyOf(ar, k);
     }
 
