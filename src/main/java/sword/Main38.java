@@ -46,7 +46,7 @@ public class Main38 {
     }
 
     private void dfs(char[]ar,int deep){
-        if(deep==ar.length-1){
+        if(deep==ar.length){
             list.add(String.valueOf(ar));
             return;
         }

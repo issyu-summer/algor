@@ -320,3 +320,7 @@
 ### 排序
 - QuickSort:🔗[快速排序](src/main/java/sort/QuickSort.java)
 - CountSort:🔗[计数排序](src/main/java/sort/CountSort.java)
+
+### 优先队列(求相反的)
+- 小顶堆求前K大
+- 大顶堆求前K小

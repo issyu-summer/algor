@@ -7,23 +7,19 @@ package sword;
 public class Main53sb1 {
 
     public int search(int[] nums, int target) {
-        int i=0,j=nums.length-1;
-        int count=0;
+        return helper(nums,target)-helper(nums,target-1);
+    }
+
+    private int helper(int []ar,int target){
+        int i=0,j=ar.length-1;
         while (i<=j){
-            if(nums[i]<target){
-                i++;
-            }
-            if(nums[j]>target){
-                j--;
-            }
-            //短路不合理的边界
-            if((i<nums.length&&j>=0)&&nums[i]==target&&target==nums[j]){
-                break;
+            int m=i+((j-i)>>1);
+            if(ar[m]<=target){
+                i=m+1;
+            }else {
+                j=m-1;
             }
         }
-        if(j<i){
-            return 0;
-        }
-        return j-i+1;
+        return i;
     }
 }
