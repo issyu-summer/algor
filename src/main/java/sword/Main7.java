@@ -11,15 +11,15 @@ import java.util.stream.Stream;
  */
 public class Main7 {
 
-    private Map<Integer, Integer> dict;
+    private Map<Integer, Integer> dictIn;
     private int[] preorder;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        this.dict = new HashMap<>();
+        this.dictIn = new HashMap<>();
         this.preorder = preorder;
-        //缓存中序遍历：左根右
+        //缓存中序：左根右
         for (int i = 0; i < inorder.length; i++) {
-            dict.put(inorder[i], i);
+            dictIn.put(inorder[i], i);
         }
         return recur(0, 0, inorder.length - 1);
 
@@ -32,7 +32,7 @@ public class Main7 {
         //前序遍历：根左右->首元素为根
         TreeNode node = new TreeNode(preorder[root]);
         //i:根在中序遍历中的位置
-        int i = dict.get(preorder[root]);
+        int i = dictIn.get(preorder[root]);
         //root用在前序遍历==i,left和right用在中序遍历
         //root+1->左根的位置
         node.left = recur(root + 1, left, i - 1);

@@ -21,8 +21,7 @@ public class Main6 {
             head = head.next;
         }
         int size = stack.size();
-        int[] ret = IntStream.range(0, size).map(i -> stack.pop()).toArray();
-        return ret;
+        return IntStream.range(0, size).map(i -> stack.pop()).toArray();
     }
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@ public class Evaluate {
 
     public double value(){
         Scanner scanner=new Scanner(System.in);
-        char[] chars = scanner.next().toCharArray();
+        char[] chars = scanner.nextLine().toCharArray();
         for (char aChar : chars) {
             eva(aChar);
         }

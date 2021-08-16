@@ -90,4 +90,30 @@ public class Main227 {
             return Character.isDigit(c);
         }
 
+
+        public int calculate1(String s){
+            Stack<Integer> stack=new Stack<>();
+            char preSign='+';
+            int num=0;
+            int n=s.length();
+            for (int i = 0; i < n; i++) {
+                if(isNumber(s.charAt(i))){
+                    num=num*10+s.charAt(i)-'0';
+                }else if(s.charAt(i)!=' '||i==n-1){
+                    switch (preSign) {
+//                        case '+' -> stack.push(num);
+//                        case '-' -> stack.push(-num);
+//                        case '*' -> stack.push(stack.pop() * num);
+//                        case '/' -> stack.push(stack.pop()/num);
+                    }
+                    preSign=s.charAt(i);
+                    num=0;
+                }
+            }
+            int res=0;
+            while (!stack.isEmpty()){
+                res+=stack.pop();
+            }
+            return res;
+        }
 }

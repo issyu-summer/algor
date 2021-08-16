@@ -27,12 +27,10 @@ public class Main40 {
         return res;
     }
 
-    private int k;
     public int[] getLeastNumbers1(int[] arr, int k) {
         if(k>arr.length){
             return arr;
         }
-        this.k=k;
         //第k小
 //        return quickSort(arr,k,0,arr.length-1);
         //第k大
@@ -42,7 +40,7 @@ public class Main40 {
     Random random=new Random();
     //快速排序必须先移动右指针！！！
     private int[] quickSort(int []ar,int k ,int l,int r){
-        if(l>r){
+        if(l>=r){
             return Arrays.copyOf(ar, k);
         }
         int index=random.nextInt(r-l+1)+l;

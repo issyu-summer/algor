@@ -55,7 +55,7 @@
   `dp[i]=max(dp[i-j]*j,dp[i])  j=2~i-1` 
 - 14.2:🔗[剪绳子2](src/main/java/sword/Main14sb2.java)    
   `dp[i]=max(dp[i-j]*j,dp[i-1])%1e8+7`
-- 19:正则表达式的匹配
+- 19:🔗[正则表达式的匹配](src/main/java/sword/Main19.java)
 - 42:🔗[连续子数组的最大和](src/main/java/sword/Main42.java)  
   `if(dp[i-1]<0) dp[i]=nums[i]; else dp[i]=dp[i]+nums[i]`
 - 46:🔗[把数字翻译成字符串](src/main/java/sword/Main46.java)   
@@ -320,7 +320,11 @@
 ### 排序
 - QuickSort:🔗[快速排序](src/main/java/sort/QuickSort.java)
 - CountSort:🔗[计数排序](src/main/java/sort/CountSort.java)
+- MergeSort:🔗[归并排序](src/main/java/sort/MergeSort.java)
+- HeapSort:🔗[堆排序](src/main/java/sort/HeapSort.java)
 
 ### 优先队列(求相反的)
 - 小顶堆求前K大
 - 大顶堆求前K小
+###
+- 40亿中找1个,位图或折半

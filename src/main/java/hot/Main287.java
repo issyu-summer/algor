@@ -17,4 +17,18 @@ public class Main287 {
         }
         return b>a?b-a:a-b;
     }
+
+    private int floyd(int []ar){
+        int slow=0,fast=0;
+        do{
+            slow=ar[slow];
+            fast=ar[ar[fast]];
+        }while (fast!=slow);
+        slow=0;
+        do {
+            slow=ar[slow];
+            fast=ar[fast];
+        }while (fast!=slow);
+        return slow;
+    }
 }

@@ -28,10 +28,14 @@ public class Main3 {
                 return nums[i];
             }
             //归位：将nums[i]放到位置nums[i]，位置i不一定正确，但位置nums[i]一定正确
-            int tmp = nums[nums[i]];
-            nums[nums[i]] = nums[i];
-            nums[i] = tmp;
+            swap(nums,i,nums[i]);
         }
         return -1;
+    }
+
+    private void swap(int []ar,int i,int j){
+        int tmp=ar[i];
+        ar[i]=ar[j];
+        ar[j]=tmp;
     }
 }

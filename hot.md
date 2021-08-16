@@ -15,6 +15,9 @@ git config --global http.sslVerify "false"
 ### 动态规划
 - 5、最长回文串  
   `需要枚举长度`
+- 1143、最长公共序列
+  `if c1==c2 dp[i][j]=dp[i-1][j-1]+1`  
+  `else dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1])`
 ### 字符串
 - 8、字符串转整数  
   `ar=s.trim().toCharArray(),res=0,sign=1,i=1,boundary=Integer.MAX_VALUE/10`  

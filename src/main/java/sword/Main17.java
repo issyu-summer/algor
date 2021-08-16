@@ -30,7 +30,6 @@ public class Main17 {
         if(i==n){
             String s=sBuilder.substring(start);
             if(!s.equals("0")){
-//                System.out.println(s);
                 this.ar[count++]=Integer.parseInt(s);
             }
             if(n-start==nine){

@@ -34,6 +34,7 @@ public class Test {
     }
 
 
+
     public static void main(String[] args) {
         int[] ar = {
                 5,7,7,8,8,10

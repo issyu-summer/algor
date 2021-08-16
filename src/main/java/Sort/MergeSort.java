@@ -1,6 +1,7 @@
 package sort;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * @author summer
@@ -8,66 +9,52 @@ import java.util.Arrays;
  */
 public class MergeSort extends Sort {
 
-    private static Comparable[] aux;
-
-    public static void sort(Comparable[] a) {
-        aux = new Comparable[a.length];
-        sort(a, 0, a.length - 1);
+    public static void sort(int []ar){
+        int []tmp=new int[ar.length];
+        sort(ar,0, ar.length-1,tmp);
     }
-
-    /**
-     * 自顶向下
-     */
-    private static void sort(Comparable[] a, int low, int high) {
-        if (high <= low) {
+    private static void sort(int []ar,int l,int r,int []tmp){
+        if(l>=r){
             return;
         }
-        int mid = low + (high - low) / 2;
-        sort(a, low, mid);
-        sort(a, mid + 1, high);
-        if (less(a[mid], a[mid + 1])) {
-            return;
-        }
-        merge(a, low, mid, high);
+        int m=l+((r-l)>>1);
+        sort(ar,l,m,tmp);
+        sort(ar,m+1,r,tmp);
+        merge(ar,l,m,r,tmp);
     }
+
 
     /**
-     * 自底向上
+     * merge中全部是等号
      */
-    public static void sortBu(Comparable[] a) {
-        int size = a.length;
-        aux = new Comparable[size];
-        for (int sz = 1; sz < size; sz *= 2) {
-            for (int low = 0; low < size - sz; low += sz * 2) {
-                merge(a, low, low + sz - 1, Math.min(low + sz * 2 - 1, size - 1));
+    private static void merge(int[] ar, int l, int m, int r,int []tmp) {
+        int i=l,j=m+1;
+        int t=0;
+        while (i<=m&&j<=r){
+            if(ar[i]<ar[j]){
+                tmp[t++]=ar[i++];
+            }else {
+                tmp[t++]=ar[j++];
             }
         }
-    }
-
-    public static void merge(Comparable[] a, int lo, int mid, int hi) {
-        int i = lo, j = mid + 1;
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = a[k];
+        while (i<=m){
+            tmp[t++]=ar[i++];
         }
-        for (int k = lo; k <= hi; k++) {
-            if (i > mid) {
-                a[k] = aux[j++];
-            } else if (j > hi) {
-                a[k] = aux[i++];
-            } else if (less(aux[i], aux[j])) {
-                a[k] = aux[i++];
-            } else {
-                a[k] = aux[j++];
-            }
+        while (j<=r){
+            tmp[t++]=ar[j++];
+        }
+        t=0;
+        while (l<=r){
+            ar[l++]= tmp[t++];
         }
     }
 
 
     public static void main(String[] args) {
-        Integer[] a1 = new Integer[]{
+        int[] a1 = new int[]{
                 1, 3, 4, 6, 7, 9, 2, 4, 3, 1, 5, 6, 3, 7, 7, 8, 9, 10, 12, 34, 56, 78941, 1223, 888
         };
-        MergeSort.sortBu(a1);
+        MergeSort.sort(a1);
         System.out.println(Arrays.toString(a1));
 
     }
