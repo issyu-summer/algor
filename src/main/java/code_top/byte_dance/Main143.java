@@ -29,7 +29,7 @@ public class Main143 {
         list.get(i).next=null;
     }
 
-    //中点+反转第二个+拼接
+    //中点断开+反转第二个+拼接
     public void reorderList1(ListNode head) {
         if (head == null || head.next == null || head.next.next == null) {
             return;
@@ -48,6 +48,7 @@ public class Main143 {
         }
     }
 
+    //反转链表
     private ListNode reverse(ListNode head){
         ListNode pre=null,cur=head;
         while (cur!=null){
@@ -58,6 +59,7 @@ public class Main143 {
         }
         return pre;
     }
+    //中点
     private ListNode mid(ListNode head){
         ListNode slow=head,fast=head;
         while (fast.next!=null&&fast.next.next != null){

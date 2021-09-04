@@ -4,6 +4,42 @@ import java.util.HashMap;
 import java.util.Map;
 
 class LFUCache {
+    class Node {
+        int key;
+        int value;
+        int freq = 1;
+        Node pre;
+        Node next;
+
+        public Node() {}
+
+        public Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+    class DLink {
+        Node head;
+        Node tail;
+        public DLink() {
+            head = new Node();
+            tail = new Node();
+            head.next = tail;
+            tail.pre = head;
+        }
+
+        void removeNode(Node node) {
+            node.pre.next = node.next;
+            node.next.pre = node.pre;
+        }
+
+        void addNode(Node node) {
+            node.next = head.next;
+            head.next.pre = node;
+            head.next = node;
+            node.pre = head;
+        }
+    }
     Map<Integer, Node> cache; // 存储缓存的内容
     Map<Integer, DLink> freqMap; // 存储每个频次对应的双向链表
     int size;
@@ -69,44 +105,5 @@ class LFUCache {
             freqMap.put(freq + 1, linkedList);
         }
         linkedList.addNode(node);
-    }
-}
-
-class Node {
-    int key;
-    int value;
-    int freq = 1;
-    Node pre;
-    Node next;
-
-    public Node() {}
-
-    public Node(int key, int value) {
-        this.key = key;
-        this.value = value;
-    }
-}
-
-class DLink {
-    Node head;
-    Node tail;
-
-    public DLink() {
-        head = new Node();
-        tail = new Node();
-        head.next = tail;
-        tail.pre = head;
-    }
-
-    void removeNode(Node node) {
-        node.pre.next = node.next;
-        node.next.pre = node.pre;
-    }
-
-    void addNode(Node node) {
-        node.next = head.next;
-        head.next.pre = node;
-        head.next = node;
-        node.pre = head;
     }
 }

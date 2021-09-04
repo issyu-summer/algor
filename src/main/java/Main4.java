@@ -5,47 +5,46 @@ import java.util.Scanner;
  * @see <a href=""></a><br/>
  */
 public class Main4 {
-    private boolean isAb(String s){
-        char []ar;
-        int len;int l;int i=0;
-        while (i<(len=(ar=s.toCharArray()).length)){
-            l=i;
-            int ca=0,cb=0;
-            while (l<len){
-                if(ar[l]=='a'){
-                    l++;
-                    ca++;
-                }else {
-                    break;
-                }
+    class Solution {
+        public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+            int length1 = nums1.length, length2 = nums2.length;
+            int totalLength = length1 + length2;
+            if (totalLength % 2 == 1) {
+                int midIndex = totalLength / 2;
+                return getKthElement(nums1, nums2, midIndex + 1);
+            } else {
+                int midIndex1 = totalLength / 2 - 1, midIndex2 = totalLength / 2;
+                return (getKthElement(nums1, nums2, midIndex1 + 1) + getKthElement(nums1, nums2, midIndex2 + 1)) / 2.0;
             }
-            while (l<len){
-                if(ar[l]=='b'){
-                    l++;
-                    cb++;
-                }else {
-                    break;
-                }
-            }
-            if(l<len&&ar[l]=='b'){
-                return false;
-            }
-            if(ca!=cb){
-                return false;
-            }
-            i=l;
         }
-        return true;
-    }
 
-    public static void main(String[] args) {
-        Scanner s=new Scanner(System.in);
-        int n=s.nextInt();
-        for (int i = 0; i < n; i++) {
-            if(new Main4().isAb(s.next())){
-                System.out.println("YES");
-            }else {
-                System.out.println("NO");
+        public int getKthElement(int[] nums1, int[] nums2, int k) {
+            int length1 = nums1.length, length2 = nums2.length;
+            int index1 = 0, index2 = 0;
+            int kthElement = 0;
+            while (true) {
+                // 边界情况
+                if (index1 == length1) {
+                    return nums2[index2 + k - 1];
+                }
+                if (index2 == length2) {
+                    return nums1[index1 + k - 1];
+                }
+                if (k == 1) {
+                    return Math.min(nums1[index1], nums2[index2]);
+                }
+                // 正常情况
+                int half = k / 2;
+                int newIndex1 = Math.min(index1 + half, length1) - 1;
+                int newIndex2 = Math.min(index2 + half, length2) - 1;
+                int pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];
+                if (pivot1 <= pivot2) {
+                    k -= (newIndex1 - index1 + 1);
+                    index1 = newIndex1 + 1;
+                } else {
+                    k -= (newIndex2 - index2 + 1);
+                    index2 = newIndex2 + 1;
+                }
             }
         }
     }
